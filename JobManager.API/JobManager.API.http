@@ -1,0 +1,34 @@
+@JobManager.API_HostAddress = https://kfyshb7m98.us-east-1.awsapprunner.com
+@JobManager.API_HostAddressLocal = https://localhost:7149
+@JobId = 0
+@JobIdGuid = 42cf25f3-5ae7-49c8-8d53-e9b02351d1e4
+
+GET {{JobManager.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+POST {{JobManager.API_HostAddressLocal}}/v2/jobs
+Content-Type: application/json
+
+{
+  "id": 0,
+  "title": "Senior .NET Developer",
+  "description": "Full Stack Senior .NET Developer",
+  "minSalary": 5000,
+  "maxSalary": 6000,
+  "company": "Microsoft"
+}
+
+###
+
+POST {{JobManager.API_HostAddressLocal}}/v2/jobs/{{JobIdGuid}}/apply
+Content-Type: application/json
+
+{
+  "id": 0,
+  "jobId": 0,
+  "candidateName": "Luis Felipe",
+  "candidateEmail": "lojepi9578@fanicle.com",
+  "cvUrl": ""
+}
